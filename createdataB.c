@@ -7,7 +7,7 @@
 #include <string.h>
 
 /* Creates a file containing binary. The first 48 bytes contain a name
-followed by null bytes. Then, the file has an address. Returns 0.*/
+followed by null bytes. Then, the file has an address. */
 int main(void) {
     int bufferLength = 48; /* length of array */
     int nameLength; /* length of name in the array */
@@ -20,7 +20,7 @@ int main(void) {
 
     nameLength = strlen(name);
     i = 0;
-    /* prints a name followed by null bytes, for a total of 48 chars */
+    /* prints a name followed by null bytes, for a total of 48 chars*/
     while (i < bufferLength) {
         if (i < nameLength)
             putc(name[i], psFile);
@@ -29,7 +29,7 @@ int main(void) {
         i++;
     }
 
-    /* prints a memory address */
+    uiData = 0x400858;
     fwrite(&uiData, sizeof(unsigned int), 1, psFile);
 
     fclose(psFile);
