@@ -9,7 +9,7 @@
 enum {BUFSIZE = 48};
 
 /* Creates a file containing binary. The first 48 bytes contain a name
-followed by null bytes. Then, the file has an address. */
+followed by null bytes. Then, adds memory address to file. */
 int main(void) {
     int nameLength;
     int i;
@@ -21,8 +21,10 @@ int main(void) {
 
     psFile = fopen("dataB", "w");
 
-    nameLength = strlen(name);
+    
     i = 0;
+    nameLength = strlen(name);
+
     /* prints a name followed by null bytes, for a total of 48 chars*/
     while (i < BUFSIZE) {
         if (i < nameLength)
@@ -32,6 +34,7 @@ int main(void) {
         i++;
     }
 
+    /* prints memory address */
     fwrite(&uiAddress, sizeof(unsigned int), 1, psFile);
 
     fclose(psFile);
