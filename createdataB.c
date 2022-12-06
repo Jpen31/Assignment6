@@ -11,7 +11,7 @@ int main(void) {
     int i;
     int nameLength;
     FILE *psFile;
-    char yourName[(const) bufferLength] = "Jacob Penstein";
+    char name[48] = "Jacob Penstein";
 
     psFile = fopen("dataB", "w");
 
