@@ -18,11 +18,12 @@ int main(void) {
     nameLength = strlen(name);
     i = 0;
 
-    for (i < bufferLength; i++) {
+    while (i < bufferLength) {
         if (i < nameLength)
             putc(name[i], psFile);
         else
             putc('\0', psFile);
+        i++;
     }
 
     fclose(psFile);
