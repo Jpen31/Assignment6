@@ -11,6 +11,7 @@ int main(void) {
     int i;
     int nameLength;
     FILE *psFile;
+    unsigned int uiData;
     char name[48] = "Jacob Penstein";
 
     psFile = fopen("dataB", "w");
@@ -25,6 +26,9 @@ int main(void) {
             putc('\0', psFile);
         i++;
     }
+
+    uiData = 0x400858;
+    fwrite(&uiData, sizeof(unsigned int), 1, psFile);
 
     fclose(psFile);
 
