@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 
-enum {BUFFERLENGTH = 48};
+enum {BUFSIZE = 48};
 
 /* Creates a file containing binary. The first 48 bytes contain a name
 followed by null bytes. Then, the file has an address. */
@@ -22,7 +22,7 @@ int main(void) {
     nameLength = strlen(name);
     i = 0;
     /* prints a name followed by null bytes, for a total of 48 chars */
-    while (i < BUFFERLENGTH) {
+    while (i < BUFSIZE) {
         if (i < nameLength)
             putc(name[i], psFile);
         else
