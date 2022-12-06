@@ -18,7 +18,7 @@ int main(void) {
     nameLength = strlen(name);
     i = 0;
 
-    for (i < bufferLength; i++;) {
+    for (i < bufferLength; i++) {
         if (i < nameLength)
             putc(name[i], psFile);
         else
