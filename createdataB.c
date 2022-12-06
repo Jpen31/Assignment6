@@ -6,14 +6,17 @@
 #include <stdio.h>
 #include <string.h>
 
+enum {BUFSIZE = 48};
+
 /* Creates a file containing binary. The first 48 bytes contain a name
 followed by null bytes. Then, the file has an address. */
 int main(void) {
-    int bufferLength = 48; /* length of array */
-    int nameLength; /* length of name in the array */
+    int nameLength;
     int i;
     FILE *psFile;
-    unsigned int uiData; /* memory address */
+    unsigned int uiAddress = 0x400858; /* memory address */
+    
+    /* Can change name to any string less than 47 characters */
     char name[48] = "Jacob Penstein"; 
 
     psFile = fopen("dataB", "w");
@@ -21,7 +24,7 @@ int main(void) {
     nameLength = strlen(name);
     i = 0;
     /* prints a name followed by null bytes, for a total of 48 chars*/
-    while (i < bufferLength) {
+    while (i < BUFSIZE) {
         if (i < nameLength)
             putc(name[i], psFile);
         else
@@ -29,8 +32,7 @@ int main(void) {
         i++;
     }
 
-    uiData = 0x400858;
-    fwrite(&uiData, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiAddress, sizeof(unsigned int), 1, psFile);
 
     fclose(psFile);
 
