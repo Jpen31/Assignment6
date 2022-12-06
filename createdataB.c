@@ -14,7 +14,7 @@ int main(void) {
     int nameLength;
     int i;
     FILE *psFile;
-    unsigned int uiAddress = 0x400860; /* memory address */
+    unsigned int uiAddress = 0x400858; /* memory address */
     
     /* Can change name to any string less than 47 characters */
     char name[48] = "Jacob Penstein"; 
