@@ -21,7 +21,7 @@ int main(void) {
 
     psFile = fopen("dataB", "w");
 
-     
+    
     i = 0;
     nameLength = strlen(name);
 
