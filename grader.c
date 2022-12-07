@@ -47,5 +47,7 @@ int main(void)
    printf("%c is your grade.\n", grade);
    printf("Thank you, %s.\n", name);
 
+   putchar('A');
+
    return 0;
 }
